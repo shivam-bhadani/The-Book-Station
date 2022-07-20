@@ -1,0 +1,226 @@
+<html>
+<title>
+
+</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+  body {
+    background-image: url('https://images.pexels.com/photos/1178683/pexels-photo-1178683.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-color: rgb(65, 206, 211);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  body {
+    font-family: "Lato", sans-serif
+  }
+
+  .mySlides {
+    display: none
+  }
+
+  .buton {
+    background-color: black;
+    color: white;
+    font-size: 16px;
+  }
+
+  #dashboard {
+    font-style: italic;
+    font-size: 200%;
+    color: aquamarine
+  }
+
+  #landing-header {
+    z-index: 1;
+
+    text-align: center;
+    padding-top: 40vh;
+  }
+
+  #landing-header h1 {
+    color: white;
+    font-size: 500%;
+  }
+
+  table {
+    margin: 5% 5px;
+    padding: 100px 100px;
+  }
+
+  th {
+    padding: 5px;
+  }
+
+  td {
+    font-style: italic;
+    padding: 5px;
+    position: relative;
+  }
+
+
+  @media (min-width: 1000px) {
+    .jumbotron {
+      background-color: bisque;
+      width: 49%;
+      border-spacing: 0px 5px;
+      border-collapse: collapse;
+      margin-left: 5px;
+      margin-right: 5px;
+
+    }
+  }
+</style>
+
+<body>
+
+  <% include ./partials/navybar %>
+    <div>
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog ">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Your Details</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <table>
+                <tr>
+                  <th class="th1">Name</th>
+                  <td>
+                    <%= user.name%>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Email</th>
+                  <td>
+                    <%= user.email%>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Phone Number</th>
+                  <td>
+                    <%= user.number%>
+                  </td>
+                </tr>
+              </table>
+
+              <p><a herf="/myaccount/update/<%= user._id %>" class="btn btn-primary"
+                  onclick="location.reload();location.href='myaccount/update/<%= user._id %>'">Change Details?</a></p>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div id="landing-header" class=" ">
+        <h1>Welcome to RAINbook</h1>
+
+        <h4 style="color:blue ;font-size: 32px"> <b>
+            <% include ./partials/messages %>
+          </b></h4>
+
+        <br>
+
+
+
+        <a href="/books/add/<%= user.email %>" class="btn btn-success btn-lg">Add book</a>
+        <!-- <a href="/books/recent" class="btn btn-success btn-lg">Recently added books</a> -->
+        <p>
+        <form action="/dashboard/" method="GET" class="form-inline">
+          <div class="form-group">
+
+            <input type="text" name="search" placeholder="Book search..." class="form-control">
+
+            <input type="submit" value="Search" class="btn btn default">
+          </div>
+        </form>
+        </p>
+        <p>
+        <h2 style="color:red">
+          <%= noMatch %>
+        </h2>
+        </p>
+
+      </div>
+      <div class="container">
+        <% books.forEach(function(book){ %>
+          <div class="container col-sm-12 col-lg-6 jumbotron text-center border" id="jumbotron">
+            <div>
+              <table style="width:95%">
+                <tr>
+                  <th>Name</th>
+                  <td>
+                    <%= book.name%>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Author</th>
+                  <td>
+                    <%= book.author%>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Owner</th>
+                  <td>
+                    <%= book.CurrentEmail%>
+                  </td>
+                </tr>
+                <tr>
+                  <th></th>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <p>
+                <a href="/details/<%= book.id %>" class="btn btn-primary">More Info</a>
+              </p>
+            </div>
+            <div>
+              <p>
+                <a href="/mailing/request/<%= book.id %>" class="btn btn-primary">Request</a>
+              </p>
+            </div>
+          </div>
+          <% });%>
+      </div>
+
+    </div>
+    <script>
+      // Automatic Slideshow - change image every 4 seconds
+      var myIndex = 0;
+      // carousel();
+
+
+
+      function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

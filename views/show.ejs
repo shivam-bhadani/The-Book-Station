@@ -1,0 +1,270 @@
+<html>
+
+<head>
+
+  <title>details</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: url('https://png.pngtree.com/thumb_back/fw800/back_pic/00/14/65/3256657136926fa.jpg');
+      width: 70%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1200px;
+      background: #ccc;
+    }
+
+    table {
+      margin: 5% 5px;
+      padding: 100px 100px;
+    }
+
+    th {
+      padding: 5px;
+    }
+
+    td {
+      font-style: italic;
+      padding: 5px;
+      position: relative;
+    }
+
+    @media (min-width: 1000px) {
+      body {
+
+        min-height: 100%;
+        min-width: 100%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        overflow-y: hidden;
+        overflow-x: hidden;
+      }
+
+      .front,
+      .back {
+        background: navy;
+      }
+
+      .front,
+      .page1,
+      .page3,
+      .page5 {
+        border-bottom-right-radius: .5em;
+        border-top-right-radius: .5em;
+      }
+
+      .back,
+      .page2,
+      .page4,
+      .page6 {
+        border-bottom-right-radius: .5em;
+        border-top-right-radius: .5em;
+      }
+
+      .page1 {
+        background: #efefef;
+      }
+
+      .page2 {
+        background: #efefef;
+      }
+
+      .page3 {
+        background: #f5f5f5;
+      }
+
+      .page4 {
+        background: #f5f5f5;
+      }
+
+      .page5 {
+        background: #fafafa;
+      }
+
+      .page6 {
+        background: #fdfdfd;
+      }
+
+      .book .front {
+        transform: rotateY(-120deg) scale(1.1);
+        box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+      }
+
+      .book .page1 {
+        transform: rotateY(-115deg) scale(1.1);
+        box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+      }
+
+      .book .page2 {
+        transform: rotateY(-0deg) scale(1.1);
+        box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2)
+      }
+
+      .book .page3 {
+        transform: rotateY(-110deg) scale(1.1);
+        box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+      }
+
+      .book .page4 {
+        transform: rotateY(-0deg) scale(1.1);
+        box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+      }
+
+      .book .page5 {
+        transform: rotateY(-105deg) scale(1.1);
+        box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+      }
+
+      .book .page6 {
+        transform: rotateY(-0deg) scale(1.1);
+        box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+      }
+
+      .book .back {
+        transform: rotateY(-0deg) scale(1.1);
+      }
+
+
+
+
+      .book {
+        transform-style: preserve-3d;
+        position: relative;
+        height: 600px;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        backface-visibility: visible;
+        text-align: center
+      }
+
+      .front,
+      .back,
+      .page1,
+      .page2,
+      .page3,
+      .page4,
+      .page5,
+      .page6 {
+        transform-style: preserve-3d;
+        position: absolute;
+        width: 400px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform-origin: left center;
+        transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+      }
+
+    }
+
+    @media (max-width: 1000px) {
+      body {
+        background-image: url('https://png.pngtree.com/thumb_back/fw800/back_pic/00/14/65/3256657136926fa.jpg');
+        min-height: 100%;
+        min-width: 100%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        overflow-y: hidden;
+        overflow-x: hidden;
+      }
+
+      table {
+        color: white;
+      }
+
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="book">
+    <div class="back"></div>
+    <div class="page6"></div>
+    <div class="page5"></div>
+    <div class="page4"></div>
+    <div class="page3"></div>
+    <div class="page2">
+      <div class="  border " id="jumbotron">
+        <div>
+          <table class="align-middle" style="width:50%">
+            <tr>
+              <th>Name</th>
+              <td>
+                <%= Book.name%>
+              </td>
+            </tr>
+            <tr>
+              <th>Author</th>
+              <td>
+                <%= Book.author%>
+              </td>
+            </tr>
+            <tr>
+              <th>Method</th>
+              <td>
+                <%= Book.lend%>
+              </td>
+            </tr>
+            <tr>
+              <th>Edition</th>
+              <td>
+                <%= Book.edition%>
+              </td>
+            </tr>
+            <tr>
+              <th>Genre</th>
+              <td>
+                <%= Book.genre%>
+              </td>
+            </tr>
+            <tr>
+              <th>Subject</th>
+              <td>
+                <%= Book.subject%>
+              </td>
+            </tr>
+            <tr>
+              <th>Description</th>
+              <td>
+                <%= Book.description%>
+              </td>
+            </tr>
+            <tr>
+              <th>Original Owner's Email</th>
+              <td>
+                <%= Book.OriginalEmail%>
+              </td>
+            </tr>
+            <tr>
+              <th>Current Owner's Email</th>
+              <td>
+                <%= Book.CurrentEmail%>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div>
+          <p>
+            <a href="/mailing/request/<%= Book._id %>" class="btn btn-success">Request</a>
+          </p>
+        </div>
+        <div>
+          <p>
+            <a href="/dashboard" class="btn btn-warning">Cancel</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <div class="page1"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+
+</html>

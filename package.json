@@ -1,0 +1,30 @@
+{
+  "name": "add",
+  "version": "1.0.0",
+  "description": "This contain the code to add book the the resource. It add books to the MongoDB atlas username : rikesh password : R269407r",
+  "main": "app .js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^16.0.1",
+    "ejs": "^2.6.2",
+    "eslint": "^6.0.0",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.16.2",
+    "mongoose": "^5.6.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}

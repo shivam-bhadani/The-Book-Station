@@ -1,0 +1,51 @@
+<div class="row mt-5">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h1 class="text-center mb-3">
+        <i class="fas fa-user-plus"></i> BOOK
+      </h1>
+      <% include ./partials/messages %>
+        <form action="/books/add/<%= user.email %>" method="POST">
+          <div class="form-group">
+            <label for="name">Book Name</label>
+            <input type="name" id="name" name="name" class="form-control" placeholder="Enter Book Name"
+              value="<%= typeof name != 'undefined' ? name : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="author">Author</label>
+            <input type="author" id="author" name="author" class="form-control" placeholder="Enter Author "
+              value="<%= typeof author != 'undefined' ? author : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="edition">Edition</label>
+            <input type="edition" id="edition" name="edition" class="form-control" placeholder="Enter Edition"
+              value="<%= typeof edition != 'undefined' ? edition : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="genre">Genre</label>
+            <input type="genre" id="genre" name="genre" class="form-control" placeholder="Enter Genre"
+              value="<%= typeof genre != 'undefined' ? genre : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="subject" id="subject" name="subject" class="form-control" placeholder="Enter Subject"
+              value="<%= typeof subject != 'undefined' ? subject : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="description" id="description" name="description" class="form-control"
+              placeholder="Tell us something about it"
+              value="<%= typeof description != 'undefined' ? description : '' %>" />
+          </div>
+          <div class="form-group" style="display: none">
+            <label for="lend">How do you want to lend?</label>
+            <input type="lend" id="lend" name="lend" class="form-control" value="Sharing" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Add
+          </button>
+        </form>
+        <p class="lead mt-4">Don't want to add? <a href="/dashboard/">cancel</a></p>
+    </div>
+  </div>
+</div>

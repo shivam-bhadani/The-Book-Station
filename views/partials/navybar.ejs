@@ -1,0 +1,34 @@
+<!-- Navbar -->
+<div class="w3-top" style="z-index:3">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)"
+      onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/dashboard" class="w3-bar-item w3-button w3-padding-large">DASHBOARD</a>
+
+    <button type="button" class="btn btn-lg buton" data-toggle="modal" data-target="#myModal">
+      MY DETAILS
+    </button>
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">MY BOOKS<i class="fa fa-caret-down"></i></button>
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="/books/infobook/<%= user.email%>" class="w3-bar-item w3-button"> Added Books</a>
+        <a href="/books/SharedBooks/<%= user.email%>" class="w3-bar-item w3-button">Shared Books</a>
+        <a href="/books/BorrowedBooks/<%= user.email%>" class="w3-bar-item w3-button">Borrowed Books</a>
+      </div>
+    </div>
+    <a href="/logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right">logout</a>
+
+  </div>
+</div>
+
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top"
+  style="margin-top:46px; z-index: 3;">
+  <a href="/books/infobook/<%= user.email%>" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Added
+    Books</a>
+  <a href="/books/SharedBooks/<%= user.email%>" class="w3-bar-item w3-button w3-padding-large"
+    onclick="myFunction()">Shared Books</a>
+  <a href="/books/BorrowedBooks/<%= user.email%>" class="w3-bar-item w3-button w3-padding-large"
+    onclick="myFunction()">Borrowed Books</a>
+  <a href="/logout" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Logout</a>
+</div>
